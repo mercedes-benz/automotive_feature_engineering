@@ -1,0 +1,16 @@
+{
+    "n_estimators": 300,
+    "criterion": "squared_error",
+    "max_depth": 20,
+    "min_samples_split": 4,
+    "min_samples_leaf": 2,
+    "min_weight_fraction_leaf": 0.3,
+    "max_features": "sqrt",
+    "max_leaf_nodes": 50,
+    "min_impurity_decrease": 0.0,
+    "bootstrap": true,
+    "n_jobs": -1,
+    "random_state": 42,
+    "warm_start": false,
+    "ccp_alpha": 0
+}
