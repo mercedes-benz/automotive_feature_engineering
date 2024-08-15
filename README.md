@@ -7,9 +7,6 @@
   <ol>
     <li>
       <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
     </li>
     <li><a href="#how-to-clone-the-source-code">How to Clone the Source Code</a></li>
     <li><a href="#package-installation">Package Installation</a></li>
