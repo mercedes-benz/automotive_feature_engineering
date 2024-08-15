@@ -65,7 +65,7 @@
   </ol>
 </details>
 
-This repository contains supplementary code for the paper [Paper Name]. 
+This repository contains supplementary code for the paper _"Proposal of an Automated Feature Engineering Pipeline for High-Dimensional Tabular Regression Data Using Reinforcement Learning"_. 
 Author: Julian Müller <julian.mueller@mercedes-benz.com>, on behalf of MBition GmbH.
 
 [Provider Information](https://github.com/mercedes-benz/foss/blob/master/PROVIDER_INFORMATION.md)
@@ -84,12 +84,29 @@ This project is actively maintained and contributing is endorsed.
 <!-- HOW TO CLONE THE SOURCE CODE -->
 ## How to Clone the Source Code
 
+To clone the source code of this repository to your local machine, follow these steps:
+
+1. **Install Git**: Make sure you have Git installed on your computer. If not, you can download it from [git-scm.com](https://git-scm.com/).
+
+2. **Open a Terminal/Command Prompt**: Navigate to the directory where you want to clone the repository.
+
+3. **Clone the Repository**: Use the `git clone` command followed by the repository URL. Run the following command for HTTPS:
+
+   ```sh
+   git clone https://github.com/mercedes-benz/automotive_feature_engineering.git
+   ```
+   Or this one for SSH:
+    ```sh
+   git clone git@github.com:mercedes-benz/automotive_feature_engineering.git
+   ```
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- PACKAGE INSTALLATION -->
 ## Package Installation
-
+```sh
 pip install dist/automotive_feature_engineering-0.1.0-py3-none-any.whl
+```
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- USAGE EXAMPLES -->
@@ -193,7 +210,7 @@ The RL method in the is designed to perform dynamic feature engineering on autom
 
 ##### <a id="prepare-your-data-rl">Prepare Your Data</a>
 
-Prepare your training and testing datasets as pd.DataFrame. Create a new trainning dataset instead of original training and testing datasets specifically for reinforcement learning.
+Prepare your training and testing datasets as pd.DataFrame. Create a new training dataset instead of original training and testing datasets specifically for reinforcement learning.
 
 ##### <a id="model-execution-methods-rl">Model Execution Methods</a>
     
@@ -214,11 +231,13 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 
 <!-- CONTRIBUTING -->
 ## Contributing
+The instructions on how to contribute can be found in the file CONTRIBUTING.md in this repository.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- LICENSE -->
 ## License
+The code is published under the MIT license. Further information on that can be found in the LICENSE.md file in this repository.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
