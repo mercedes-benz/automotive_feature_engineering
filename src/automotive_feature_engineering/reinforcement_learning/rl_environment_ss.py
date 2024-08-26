@@ -4,37 +4,27 @@ import gymnasium as gym
 import os
 from gymnasium import spaces
 import numpy as np
-from gymnasium import Env
-from gymnasium.spaces import Discrete, Box, Dict, Tuple, MultiBinary, MultiDiscrete
-import os, subprocess, time, signal, random
+import os
 import pandas as pd
 import logging
-import json
-from typing import Optional, Union
+from typing import Optional
 import math
 import pathlib
-import random
-from src.automotive_feature_engineering.sna_handling import SnaHandling
-from src.automotive_feature_engineering.feature_extraction import FeatureExtraction
-from src.automotive_feature_engineering.feature_encoding import FeatureEncoding
-from src.automotive_feature_engineering.feature_selection import FeatureSelection
-from src.automotive_feature_engineering.feature_scaling import FeatureScaling
-from src.automotive_feature_engineering.feature_interactions import FeatureInteractions
-from src.automotive_feature_engineering.main_feature_engineering import (
-    FeatureEngineering,
-)
-from src.automotive_feature_engineering.utils.utils import combine_dfs, get_feature_df
+from automotive_feature_engineering.sna_handling import SnaHandling
+from automotive_feature_engineering.feature_extraction import FeatureExtraction
+from automotive_feature_engineering.feature_encoding import FeatureEncoding
+from automotive_feature_engineering.feature_selection import FeatureSelection
+from automotive_feature_engineering.feature_scaling import FeatureScaling
+from automotive_feature_engineering.feature_interactions import FeatureInteractions
+
+from automotive_feature_engineering.utils.utils import get_feature_df
 from sklearn.model_selection import train_test_split
-import ray
-import src.automotive_feature_engineering.utils.utils as utils
+import automotive_feature_engineering.utils.utils as utils
 
 # from ray.rllib import agents
 from ray.rllib.utils import try_import_tf
-from ray.rllib.examples.models.action_mask_model import (
-    ActionMaskModel,
-    TorchActionMaskModel,
-)
-from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
+
+from sklearn.metrics import r2_score
 from sklearn.ensemble import RandomForestRegressor
 
 tf = try_import_tf()
@@ -49,7 +39,6 @@ warnings.filterwarnings(action="ignore", category=DataConversionWarning)
 
 class EnergaizeEnv2(gym.Env):
     def __init__(self, env_config) -> None:
-        # super(EnergaizeEnv2, self).__init__()
 
         ### Training and Test Data
         # self.df_list = env_config["df"]
@@ -170,12 +159,8 @@ class EnergaizeEnv2(gym.Env):
 
         ### Take action
         try:
-            print("in try")
             self.total_steps += 1
-            print("Total Steps: ", self.total_steps)
-            print("take action")
             self._take_action(action)
-            print("action taken")
 
             if self.df_train_X_train.shape[1] > 20000:
                 reward = -1
@@ -188,7 +173,6 @@ class EnergaizeEnv2(gym.Env):
             return obs, reward, terminated, truncated, infos
 
         # poly features not possible if df too large
-
         if len(self.df_train_X_train.columns) > 200:
             self.action_mask[14] = 0
         elif len(self.df_train_X_train.columns) <= 200 and 14 not in self.state:
@@ -612,7 +596,6 @@ class EnergaizeEnv2(gym.Env):
     # Calculate reward
     ##########################################
     def _calculate_performance(self) -> float:
-        # print("CAALLLLAAAAAAAAAA")
 
         ### Add "file" and "I_" before processing
         # self.df = combine_dfs([self.df, self.df_target])
@@ -650,23 +633,6 @@ class EnergaizeEnv2(gym.Env):
 
         pred_val = regr.predict(X_val).reshape(-1, 1)
 
-        # ### PAWD
-        # # measured energy [As] on validation data
-        # val_energy_integral = self.__calculate_integral(self.rl_raster, y_val)
-        # val_energy = float(val_energy_integral[-1])
-
-        # # predicted energy [As] on training data
-        # val_predenergy_integral = self.__calculate_integral(
-        #     self.rl_raster, pred_val
-        # )
-        # val_predenergy = float(val_predenergy_integral[-1])
-        # val_energy_percdev = float(100.0 * (val_predenergy / val_energy) - 100.0)
-
-        # model_xval.append(X_val)
-        # val_energy_list.append(val_energy)
-        # val_energy_percdev_list_abs_weighed.append(
-        #     np.abs(val_energy_percdev) * val_energy
-        # )
 
         ### R2
         valR2.append(r2_score(y_val, pred_val, multioutput="raw_values"))
@@ -675,19 +641,11 @@ class EnergaizeEnv2(gym.Env):
         rewards = []
         ### R2 average
         r2_avg = np.average(valR2)
-        print("r2_avg ", r2_avg)
-        # ### PAWD
-        # pawd = -np.abs(
-        #     np.sum(val_energy_percdev_list_abs_weighed) / np.sum(val_energy_list)
-        # )
+
         print("STATE CALC", self.state)
-        # print("r2_avg ", r2_avg, "PAWD ", pawd)
 
         transformed_r2 = self.expo_r2(r2_avg)
         rewards.append(transformed_r2)
-        # rewards.append(transformed_r2)
-        # transformed_pawd = self.expo_pawd(pawd)
-        # rewards.append(transformed_pawd)
 
         ### Signals
         if self.df_train_X_train.shape[1] > 400:

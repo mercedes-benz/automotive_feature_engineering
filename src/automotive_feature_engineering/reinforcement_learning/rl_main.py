@@ -19,14 +19,10 @@ import ray
 from ray.rllib.algorithms import ppo
 from ray.rllib.examples.models.action_mask_model import ActionMaskModel
 from ray.tune.logger import pretty_print
-from src.automotive_feature_engineering.reinforcement_learning.rl_environment_ss import (
+from automotive_feature_engineering.reinforcement_learning.rl_environment_ss import (
     EnergaizeEnv2,
 )
-
-# from config import Config
-import numpy as np
-from src.automotive_feature_engineering.utils import data_loader_test
-from src.automotive_feature_engineering.__init__ import manual
+from automotive_feature_engineering.__init__ import manual
 
 
 os.environ["OPENBLAS_NUM_THREADS"] = "1"
@@ -111,7 +107,7 @@ class ReinforcementLearning:
         }
         print("Starting reinforcement learning training...")
 
-        ray.init(local_mode=False, ignore_reinit_error=True)
+        ray.init(local_mode=True, ignore_reinit_error=True)
 
         register_env("multienv", lambda env_config: EnergaizeEnv2(env_config))
 
