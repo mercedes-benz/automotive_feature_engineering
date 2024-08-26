@@ -10,7 +10,6 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-import multiprocessing as mp
 import src.automotive_feature_engineering.utils.utils as utils
 
 from sklearn.ensemble import (
@@ -21,7 +20,7 @@ from sklearn.ensemble import (
 
 from eli5.sklearn import PermutationImportance
 from sklearn.inspection import permutation_importance
-from src.automotive_feature_engineering.utils.utils import split_df, combine_dfs
+from automotive_feature_engineering.utils.utils import split_df, combine_dfs
 
 
 class FeatureSelection:

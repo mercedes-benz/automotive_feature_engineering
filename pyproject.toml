@@ -1,7 +1,7 @@
 [project]
 name = "automotive_feature-engineering"
 version = "0.1.0"
-requires-python = ">=3.10.11"
+requires-python = ">=3.10"
 description = "A Python package designed to automate the feature engineering process for large in-car communication datasets within the automotive industry."
 authors = [
   { name = "Your Name", email = "your.email@example.com" },
@@ -117,7 +117,6 @@ dependencies = [
     "tensorboardX==2.6.2.2",
     "tensorflow==2.13.0",
     "tensorflow-estimator==2.13.0",
-    "tensorflow-io-gcs-filesystem==0.37.1",
     "termcolor==2.4.0",
     "threadpoolctl==3.5.0",
     "tifffile==2024.7.2",
@@ -125,7 +124,6 @@ dependencies = [
     "typing_extensions==4.5.0",
     "tzdata==2024.1",
     "urllib3==2.2.2",
-    "virtualenv==20.26.3",
     "Werkzeug==3.0.3",
     "wrapt==1.14.1"
 ]
@@ -140,3 +138,5 @@ rl = "automotive_featureengineering:rl"
 static = "automotive_featureengineering:static"
 manual = "automotive_featureengineering:manual"
 
+[tool.setuptools.package-data]
+"automotive_feature_engineering" = ["reinforcement_learning/*.json"]

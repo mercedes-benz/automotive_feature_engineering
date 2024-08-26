@@ -1,6 +1,6 @@
 # SPDX-FileCopyrightText: Copyright (c) 2024 MBition GmbH.
 # SPDX-License-Identifier: MIT
-from src.automotive_feature_engineering.main_feature_engineering import (
+from automotive_feature_engineering.main_feature_engineering import (
     FeatureEngineering,
 )
 
