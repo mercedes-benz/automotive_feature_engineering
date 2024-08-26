@@ -117,8 +117,6 @@ class EnergaizeEnv2(gym.Env):
     ) -> tuple[dict[np.array, np.array], float, bool, bool, dict]:
         ### Increase sequence length
         self.current_sequence_length += 1
-        print("In Step")
-        print(f"Current Sequence Length: ", self.current_sequence_length)
 
         ### Set placeholder for info
         infos = {}
@@ -289,16 +287,12 @@ class EnergaizeEnv2(gym.Env):
     ##########################################
     def _take_action(self, action: int) -> None:
         if action == 0:
-            print("Platzhalter")
+            print("Placeholder")
         # 0 -> remove highly correlated features
         elif action == 1:
             print(f"Take Action {action}")
             feature_selection = FeatureSelection()
-            print("feature_selection object created")
-            # self.df_train = combine_dfs([self.df_train, self.df_train_target])
-            print("Self Dok Path", self.alt_docu)
-            print("Self alt_config", self.alt_config)
-            print("Feture Selection Object", self.feature_selection)
+
             importances = self.feature_selection.calc_globalFeatureImportance(
                 self.alt_docu,
                 "randomforest",
@@ -306,7 +300,6 @@ class EnergaizeEnv2(gym.Env):
                 self.df_train_y_train,
                 self.alt_config,
             )
-            print("importance function called")
             # ### Remove "file" and "I_" before processing
             # self.df, self.df_target = get_feature_df(
             #     self.df, fuse_prefix=self.fuse_prefix
