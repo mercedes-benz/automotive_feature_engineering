@@ -1,24 +1,13 @@
 # SPDX-FileCopyrightText: Copyright (c) 2024 MBition GmbH.
 # SPDX-License-Identifier: MIT
-import os
-import re
+
 from typing import List, Tuple
-import eli5
-import seaborn as sns
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import warnings
-
 import multiprocessing as mp
-
-# We must import this explicitly, it is not imported by the top-level
-# multiprocessing module.
-import multiprocessing.pool
-import time
-from pandas.api.types import is_numeric_dtype, is_categorical_dtype
-from pandas.api.types import is_string_dtype, is_object_dtype
-from src.automotive_feature_engineering.utils.utils import split_df, combine_dfs
+from automotive_feature_engineering.utils.utils import split_df, combine_dfs
 
 
 class SnaHandling:
@@ -81,7 +70,7 @@ class SnaHandling:
                         )
                         for val in df[col]
                     ]
-                    df[col].fillna(sna_dict[col], inplace=True)
+                    df[col] = df[col].fillna(sna_dict[col])
                 else:
                     df[col] = [
                         sna_dict[col] if "sna" in val.lower() else str(val)
@@ -142,7 +131,7 @@ class SnaHandling:
                     )
                     for val in df[col]
                 ]
-                df[col].fillna(sna_dict[col], inplace=True)
+                df[col] = df[col].fillna(sna_dict[col])
             else:
                 df[col] = [
                     sna_dict[col] if "sna" in val.lower() else str(val)
@@ -201,7 +190,7 @@ class SnaHandling:
                     )
                     for val in df[col]
                 ]
-                df[col].fillna(sna_dict[col], inplace=True)
+                df[col] = df[col].fillna(sna_dict[col])
             else:
                 df[col] = [
                     sna_dict[col] if "sna" in val.lower() else str(val)
@@ -240,31 +229,15 @@ class SnaHandling:
                         )
                         for val in df_train[col]
                     ]
-                    df_train[col].fillna(median, inplace=True)
-
-                    # df[col] = [
-                    #     (
-                    #         float(val)
-                    #         if self._is_float(val)
-                    #         else median if "sna" in val.lower() else 0
-                    #     )
-                    #     for val in df[col]
-                    # ]
-                    # df[col].fillna(median, inplace=True)
+                    df_train[col] = df_train[col].fillna(median)
                 else:
-                    # df[col] = df[col].astype(str).fillna("nan")
                     df_train[col] = df_train[col].astype(str).fillna("nan")
             else:
                 df_train[col] = [
                     "sna" if "sna" in val.lower() else str(val)
                     for val in df_train[col].astype(str)
                 ]
-                # df[col] = [
-                #     "sna" if "sna" in val.lower() else str(val)
-                #     for val in df[col].astype(str)
-                # ]
                 df_train[col] = df_train[col].astype(str).fillna("nan")
-                # df[col] = df[col].astype(str).fillna("nan")
 
         return df_train
 
@@ -298,31 +271,15 @@ class SnaHandling:
                         )
                         for val in df_train[col]
                     ]
-                    df_train[col].fillna(mean, inplace=True)
-
-                    # df[col] = [
-                    #     (
-                    #         float(val)
-                    #         if self._is_float(val)
-                    #         else mean if "sna" in val.lower() else 0
-                    #     )
-                    #     for val in df[col]
-                    # ]
-                    # df[col].fillna(mean, inplace=True)
+                    df_train[col] = df_train[col].fillna(mean)
                 else:
-                    # df[col] = df[col].astype(str).fillna("nan")
                     df_train[col] = df_train[col].astype(str).fillna("nan")
             else:
                 df_train[col] = [
                     "sna" if "sna" in val.lower() else str(val)
                     for val in df_train[col].astype(str)
                 ]
-                # df[col] = [
-                #     "sna" if "sna" in val.lower() else str(val)
-                #     for val in df[col].astype(str)
-                # ]
                 df_train[col] = df_train[col].astype(str).fillna("nan")
-                # df[col] = df[col].astype(str).fillna("nan")
 
         return df_train
 
@@ -356,31 +313,16 @@ class SnaHandling:
                         )
                         for val in df_train[col]
                     ]
-                    df_train[col].fillna(0, inplace=True)
+                    df_train[col] = df_train[col].fillna(0)
 
-                    # df[col] = [
-                    #     (
-                    #         float(val)
-                    #         if self._is_float(val)
-                    #         else 0 if "sna" in val.lower() else 0
-                    #     )
-                    #     for val in df[col]
-                    # ]
-                    # df[col].fillna(0, inplace=True)
                 else:
-                    # df[col] = df[col].astype(str).fillna("nan")
                     df_train[col] = df_train[col].astype(str).fillna("nan")
             else:
                 df_train[col] = [
                     "sna" if "sna" in val.lower() else str(val)
                     for val in df_train[col].astype(str)
                 ]
-                # df[col] = [
-                #     "sna" if "sna" in val.lower() else str(val)
-                #     for val in df[col].astype(str)
-                # ]
                 df_train[col] = df_train[col].astype(str).fillna("nan")
-                # df[col] = df[col].astype(str).fillna("nan")
 
         return df_train
 

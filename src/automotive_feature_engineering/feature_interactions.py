@@ -3,13 +3,10 @@
 import os
 import re
 from typing import List, Tuple
-import eli5
-import seaborn as sns
-import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
-from src.automotive_feature_engineering.utils.utils import combine_dfs, get_feature_df
+from automotive_feature_engineering.utils.utils import combine_dfs, get_feature_df
 from sklearn.preprocessing import PolynomialFeatures
 
 

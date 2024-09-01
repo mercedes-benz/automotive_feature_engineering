@@ -10,8 +10,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-import multiprocessing as mp
-import src.automotive_feature_engineering.utils.utils as utils
+import automotive_feature_engineering.utils.utils as utils
 
 from sklearn.ensemble import (
     RandomForestRegressor,
@@ -21,7 +20,7 @@ from sklearn.ensemble import (
 
 from eli5.sklearn import PermutationImportance
 from sklearn.inspection import permutation_importance
-from src.automotive_feature_engineering.utils.utils import split_df, combine_dfs
+from automotive_feature_engineering.utils.utils import split_df, combine_dfs
 
 
 class FeatureSelection:
@@ -427,7 +426,6 @@ class FeatureSelection:
             )
             print(config_dict)
             regr = RandomForestRegressor(**config_dict)
-            # print(feature_df.head, target_df.head)
             regr.fit(feature_df, target_df)
             print(
                 "---Global Feature Importance calculated for RandomForestRegressor---"
@@ -804,6 +802,7 @@ class FeatureSelection:
             )
             X = df_train_features
             y = df_train_target
+
             regr = RandomForestRegressor(**config_dict).fit(X, y)
             perm = PermutationImportance(
                 regr, random_state=config_dict.get("random_state")

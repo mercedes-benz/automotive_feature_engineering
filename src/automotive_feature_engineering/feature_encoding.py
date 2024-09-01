@@ -3,13 +3,12 @@
 import os
 import re
 from typing import List, Tuple
-import seaborn as sns
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
 from sklearn.preprocessing import OneHotEncoder
-from src.automotive_feature_engineering.utils.utils import combine_dfs
+from automotive_feature_engineering.utils.utils import combine_dfs
 
 
 class FeatureEncoding:

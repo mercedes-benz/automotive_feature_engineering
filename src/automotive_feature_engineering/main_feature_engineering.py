@@ -3,18 +3,17 @@
 import os
 import re
 from typing import List, Tuple
-import seaborn as sns
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
-from src.automotive_feature_engineering.feature_extraction import FeatureExtraction
-from src.automotive_feature_engineering.feature_encoding import FeatureEncoding
-from src.automotive_feature_engineering.feature_selection import FeatureSelection
-from src.automotive_feature_engineering.feature_scaling import FeatureScaling
-from src.automotive_feature_engineering.feature_interactions import FeatureInteractions
-from src.automotive_feature_engineering.sna_handling import SnaHandling
-from src.automotive_feature_engineering.utils import combine_dfs, get_feature_df
+from automotive_feature_engineering.feature_extraction import FeatureExtraction
+from automotive_feature_engineering.feature_encoding import FeatureEncoding
+from automotive_feature_engineering.feature_selection import FeatureSelection
+from automotive_feature_engineering.feature_scaling import FeatureScaling
+from automotive_feature_engineering.feature_interactions import FeatureInteractions
+from automotive_feature_engineering.sna_handling import SnaHandling
+from automotive_feature_engineering.utils import combine_dfs, get_feature_df
 from joblib import dump, load
 
 from timeit import default_timer as timer
