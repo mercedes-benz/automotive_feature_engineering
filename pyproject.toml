@@ -104,7 +104,7 @@ dependencies = [
     "rpds-py==0.18.1",
     "rsa==4.9",
     "scikit-image==0.21.0",
-    "scikit-learn==1.2.1",
+    "scikit-learn==1.5.0",
     "scipy==1.13.1",
     "seaborn==0.13.2",
     "shellingham==1.5.4",
