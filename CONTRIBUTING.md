@@ -1,4 +1,8 @@
 <!-- SPDX-License-Identifier: MIT --->
+
+<img src="https://avatars.githubusercontent.com/u/34240465?s=200&v=4">
+<h2> Mercedes-Benz Tech Innovation </h2>
+
 # Contributing
 
 _Contributions are highly welcome!_
