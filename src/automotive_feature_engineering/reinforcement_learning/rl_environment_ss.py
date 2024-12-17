@@ -701,7 +701,7 @@ class EnergaizeEnv2(gym.Env):
         return 2 ** (4 * x - 3) - 1
 
     def expo_pawd(self, x):
-        return 2 ** (0.2 * x + 1) - 1
+        return 2 ** (-0.2 * x + 1) - 1
 
     def calculate_mean(self, *args):
         return sum(args) / len(args)
