@@ -13,7 +13,7 @@ Fax: +49 731 5056599
 E-Mail: techinnovation@mercedes-benz.com
 
 Sitz und Registergericht/Domicile and Register Court: Ulm, HRB-Nr./Commercial Register No.: 3844  
-Geschäftsführung/Management: Daniel Geisel (Vorsitzender/Chairperson), Isabelle Krautwald
+Geschäftsführung/Management: Daniel Geisel (Vorsitzender/Chairperson), Christine Luckert
 
 <https://www.mercedes-benz-techinnovation.com/en/imprint/>
 
@@ -25,7 +25,7 @@ Dovestr. 1
 E-Mail: info_mbition@mercedes-benz.com  
 
 Sitz und Registergericht/Domicile and Court of Registry: Amtsgericht Charlottenburg, HRB-Nr./Commercial Register: HRB 188241 B   
-Geschäftsführung/Management: Frank Preidel, Daniel Burk
+Geschäftsführung/Management: Steve Bentley (CEO), Daniel Burk
 
 <https://mbition.io/imprint/>
 
@@ -98,8 +98,8 @@ Geschäftsführung/Management: Kai Fischer (CEO), Antonio Del Mondo (CFO)
 ## Mercedes-Benz Connectivity Services GmbH
 
 Mercedes-Benz Connectivity Services GmbH
-Plieninger Straße 150
-70567 Stuttgart
+HPC Z299 | Industriestraße 19-21
+70565 Stuttgart
 Deutschland/Germany
 Tel: +49 711 17 39012
 mbconnectivity-services@mercedes-benz.com
@@ -114,11 +114,12 @@ Geschäftsführung/Management: Sten Rauch, Marcus Eisenhardt
 Mercedes-Benz.io GmbH   
 Industriestraße 19-21 
 70565 Stuttgart (Germany)
-Phone: +49(0)711184230    
-E-Mail: info@mercedes-benz.io  
+Phone: +49 (0) 711 172100 0
+E-Mail: whatsup-mbio@mercedes-benz.com
+
 
 Sitz und Registergericht/Domicile and Register Court: Amtsgericht Stuttgart HRB-Nr./Commercial Register No.: 752256
-Geschäftsführung/Management: Bastian Gauer (CEO), Jannis Jütting (CFO)
+Geschäftsführung/Management: Bastian Gauer (CEO), Julia Göpel (CFO)
 
 https://www.mercedes-benz.io/imprint/
 
