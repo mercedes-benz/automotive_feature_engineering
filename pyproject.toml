@@ -4,10 +4,10 @@ version = "0.1.0"
 requires-python = ">=3.10"
 description = "A Python package designed to automate the feature engineering process for large in-car communication datasets within the automotive industry."
 authors = [
-  { name = "Your Name", email = "your.email@example.com" },
+  { name = "Julian Mueller", email = "julian.mueller@mercedes-benz.com" },
 ]
 maintainers = [
-  { name = "Your Name", email = "your.email@example.com" }
+  { name = "Julian Mueller", email = "julian.mueller@mercedes-benz.com" }
 ]
 readme = "README.md"
 license = {file = "LICENSE"}
@@ -59,7 +59,7 @@ dependencies = [
     "joblib==1.4.2",
     "jsonschema==4.22.0",
     "jsonschema-specifications==2023.12.1",
-    "keras==2.13.1",
+    "keras==3.12.0",
     "kiwisolver==1.4.5",
     "lazy_loader==0.4",
     "libclang==18.1.1",
