@@ -550,6 +550,15 @@ class FeatureSelection:
         )
         drop_cols_fi = df_train_features.columns[~keep_cols_fi]
         drop_cols_fi = [col for col in drop_cols_fi if col != ""]
+        # If every feature is below the threshold (common with uniform /
+        # one-hot CAN-like signals), keep all features instead of emptying
+        # the dataset and failing later in transform.
+        if len(drop_cols_fi) == len(df_train_features.columns):
+            print(
+                "Warning: no features passed the importance threshold; "
+                "keeping all features."
+            )
+            return []
         return drop_cols_fi
 
     ##########################################
@@ -567,8 +576,17 @@ class FeatureSelection:
         - pd.DataFrame: Modified DataFrame with specified columns removed.
         """
         print("Number of features in data set:", len(df.columns))
-        # select columns to keep and assign back to dataframe
-        df = df.drop(columns=drop_cols_fi, axis=1, errors="ignore")
+        if drop_cols_fi:
+            remaining = [c for c in df.columns if c not in drop_cols_fi]
+            if len(remaining) == 0:
+                print(
+                    "Warning: dropping all features would leave none; "
+                    "keeping all features."
+                )
+                return df
+            # Drop only when there is something to remove (and avoid the
+            # deprecated columns=+axis combination on newer pandas).
+            df = df.drop(columns=drop_cols_fi, errors="ignore")
         print("All unimportant features dropped.")
         print("Number of features in data set:", len(df.columns))
         if len(df.columns) == 0:
