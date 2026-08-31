@@ -7,14 +7,19 @@ This document explains how to contribute to this project.
 By contributing you will agree that your contribution will be put under the same license as this repository.
 
 ## Table of Contents
-- [Contributor License Agreement (CLA)](#contributor-license-agreement-cla)
+- [Developer Certificate of Origin (DCO)](#developer-certificate-of-origin-dco)
 - [Communication](#communication)
 - [Contributions](#contributions)
 
-## Contributor License Agreement (CLA)#
+## Developer Certificate of Origin (DCO)
 
-Before you can contribute, you will need to sign our cla [Contributor License Agreement](https://github.com/mercedes-benz/foss/blob/master/cla/2022-04-25_MB_FOSS_CLA_MBTI.pdf) and send the signed CLA to <CLA-mbti@mercedes-benz.com>
+This repository requires a Developer Certificate of Origin (DCO). All commits must therefore include a `Signed-off-by` line with your name and email address, certifying that you authored the contribution and have the right to submit it under the project's license.
 
+Add the sign-off to your commits using the `-s` flag:
+
+```
+git commit -s -m "Your commit message"
+```
 
 ## Communication
 For communication please respect our [FOSS Code of Conduct](https://github.com/mercedes-benz/foss/blob/master/CODE_OF_CONDUCT.md).
